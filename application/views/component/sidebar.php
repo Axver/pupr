@@ -31,30 +31,29 @@
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Daftar Laporan</h6>
 				<a class="collapse-item" href="<?php echo base_url('paket') ?>">Paket</a>
-				<a class="collapse-item" href="buttons.html">Laporan Harian Mingguan</a>
-				<a class="collapse-item" href="cards.html">Laporan Bulanan</a>
-				<a class="collapse-item" href="cards.html">Laporan Catur Wulan</a>
-				<a class="collapse-item" href="cards.html">Laporan Pengawasan</a>
+
 			</div>
 		</div>
 	</li>
 
+	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo11" aria-expanded="true" aria-controls="collapseTwo">
 			<i class="fas fa-fw fa-cog"></i>
-			<span>Dasboard</span>
+			<span>Setting</span>
 		</a>
-		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+		<div id="collapseTwo11" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<h6 class="collapse-header">Daftar Laporan</h6>
-				<a class="collapse-item" href="buttons.html">Paket Chart</a>
-				<a class="collapse-item" href="buttons.html">Mingguan Chart</a>
-				<a class="collapse-item" href="cards.html">Bulanan Chart</a>
-				<a class="collapse-item" href="cards.html">Caturwulan Chart</a>
-				<a class="collapse-item" href="cards.html">Pengawasan Chart</a>
+				<h6 class="collapse-header">Setting</h6>
+				<a class="collapse-item" href="<?php echo base_url('paket') ?>">Jenis Alat Bahan</a>
+				<a class="collapse-item" href="<?php echo base_url('satuan') ?>">Satuan</a>
+
+
 			</div>
 		</div>
 	</li>
+
+
 
 
 	<!-- Divider -->

@@ -2,8 +2,18 @@
 <html lang="en">
 
 <head>
+	<script src="<?php echo base_url('assets/myscript.js') ?>"></script>
 
 	<?php $this->load->view('component/header') ?>
+
+
+	<style>
+		.action{
+			margin: 5px;
+			color:blue;
+		}
+	</style>
+
 
 
 </head>
@@ -125,6 +135,52 @@
 							<!-- Card Body -->
 							<div class="card-body">
 								<div class="chart-area">
+									<?php $this->load->view("admin/add_mingguan") ?>
+									<button class="btn btn-info" data-toggle="modal" data-target="#add_mingguan">Add</button>
+									<table id="data_table" class="display" style="width:100%">
+										<thead>
+										<tr>
+											<th>Id</th>
+											<th>Id Paket</th>
+											<th>Tahun</th>
+											<th>Actions</th>
+
+										</tr>
+										</thead>
+										<tbody>
+
+										<?php
+										$length=count($laporan);
+										$i=0;
+										while ($i<$length)
+										{
+											?>
+										  <tr>
+											  <td><?php echo $laporan[$i]->id_lap_harian_mingguan; ?></td>
+											  <td><?php echo $laporan[$i]->id_paket; ?></td>
+											  <td><?php echo $laporan[$i]->tahun; ?></td>
+											  <td>
+												  <a href="<?php echo base_url('detil_paket/view_minggu/'.$laporan[$i]->id_lap_harian_mingguan."/".$laporan[$i]->id_paket) ?>"><i class="fas fa-eye fa-sm action"></i></a>
+												  <a href="<?php echo base_url('detil_paket/edit_minggu/'.$laporan[$i]->id_lap_harian_mingguan."/".$laporan[$i]->id_paket) ?>"><i class="fas fa-edit fa-sm action"></i></a>
+												  <a href="<?php echo base_url('detil_paket/delete_minggu/'.$laporan[$i]->id_lap_harian_mingguan."/".$laporan[$i]->id_paket) ?>"><i class="fas fa-trash fa-sm action"></i></a>
+											  </td>
+
+										  </tr>
+										<?php
+											$i++;
+										}
+										?>
+
+
+										</tfoot>
+									</table>
+
+									<script>
+                                        $(document).ready(function() {
+                                            $('#data_table').DataTable();
+                                        } );
+									</script>
+
 
 
 

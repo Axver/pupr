@@ -9,4 +9,6 @@ class Paket extends CI_Controller {
 		$data['paket'] = $this->paket_models->get_paket()->result();
 		$this->load->view('admin/paket',$data);
 	}
+
+
 }

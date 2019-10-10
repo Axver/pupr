@@ -10,3 +10,5 @@ function pilih_paket()
 	window.location=domain;
 }
 
+
+

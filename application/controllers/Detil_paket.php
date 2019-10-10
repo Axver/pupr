@@ -20,7 +20,9 @@ class Detil_paket extends CI_Controller {
 
 	public function minggu($test)
 	{
-		$this->load->view('admin/mingguan',$test);
+//		echo $test;
+		$list['laporan']=$this->mingguan_model->get_mingguan($test)->result();
+		$this->load->view('admin/mingguan',$list);
 	}
 
 	public function bulan($test)
@@ -36,5 +38,49 @@ class Detil_paket extends CI_Controller {
 	public function caturwulan($test)
 	{
 		$this->load->view('admin/caturwulan',$test);
+	}
+
+	public function add_mingguan($id_mingguan,$id_paket,$tahun)
+	{
+
+      $data= array(
+      	'id_lap_harian_mingguan'=>$id_mingguan,
+		  'id_paket'=>$id_paket,
+		  'tahun'=>$tahun
+	  );
+      $this->db->insert('lap_harian_mingguan', $data);
+
+      echo "Success";
+	}
+
+	function view_minggu($id_minggu,$id_paket)
+	{
+       $this->load->view("admin/view_minggu");
+	}
+	function edit_minggu($id_minggu,$id_paket)
+	{
+
+	}
+	function delete_minggu($id_minggu,$id_paket)
+	{
+
+	}
+
+	function add_satuan($id_satuan,$satuan)
+	{
+		$data= array(
+			'id_satuan'=>$id_satuan,
+			'satuan'=>$satuan
+		);
+		$result=$this->db->insert('satuan', $data);
+		if($result)
+		{
+			echo "Success";
+		}
+		else
+		{
+			echo "Failed";
+		}
+
 	}
 }

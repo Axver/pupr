@@ -2,8 +2,18 @@
 <html lang="en">
 
 <head>
+	<script src="<?php echo base_url('assets/myscript.js') ?>"></script>
 
 	<?php $this->load->view('component/header') ?>
+
+
+	<style>
+		.action{
+			margin: 5px;
+			color:blue;
+		}
+	</style>
+
 
 
 </head>
@@ -110,11 +120,11 @@
 				<div class="row">
 
 					<!-- Area Chart -->
-					<div class="col-xl-8 col-lg-7">
-						<div class="card shadow mb-4">
+					<div class="col-xl-12 col-lg-7">
+						<div class="card shadow mb-8">
 							<!-- Card Header - Dropdown -->
-							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-								<h6 class="m-0 font-weight-bold text-primary">Manajemen Paket</h6>
+							<div class="card-header">
+								<h6 class="m-0 font-weight-bold text-primary">Laporan Mingguan</h6>
 								<div class="dropdown no-arrow">
 									<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -125,92 +135,21 @@
 							<!-- Card Body -->
 							<div class="card-body">
 								<div class="chart-area">
-									<div class="panel panel-info">
-										<?php if($responce = $this->session->flashdata('Successfully')): ?>
-											<div class="box-header">
-												<div class="col-lg-6">
-													<div class="alert alert-success"><?php echo $responce;?></div>
-												</div>
-											</div>
-										<?php endif;?>
-										<div class="panel-head">Tambah Paket</div>
-										<div class="panel-body">
-											<form action="tambah_paket" method="post">
-												<input type="text" class="form form-control" name="id_paket" placeholder="Nama Paket">
-												<input type="text" class="form form-control" name="tahun" placeholder="Tahun">
-												<br>
-												<input type="submit" class="btn btn-info" value="Tambah">
-											</form>
-										</div>
-									</div>
+									<?php $this->load->view("admin/add_bahan_alat") ?>
+									<button class="btn btn-info" data-toggle="modal" data-target="#add_mingguan">Add</button>
 
 
-									<br>
-
-									<div class="panel panel-info">
-										<div class="panel-head">Pilih Paket</div>
-										<div class="panel-body">
-											<form action="detil_paket" method="post">
-												<select name="paket" id="paket" class="form form-control">
-													<option value="0">--Pilih Paket--</option>
-													<?php if(isset($paket))
-													{
-
-														$length=count($paket);
-														$i=0;
-														while($i<$length)
-														{
-															?>
-															<option value="<?php echo $paket[$i]->id_paket ?>"><?php echo $paket[$i]->id_paket ?></option>
-													<?php
-
-															$i++;
-														}
-
-													}?>
 
 
-												</select>
-												<br>
-												<input type="submit" class="btn btn-info" value="Go">
 
-											</form>
-										</div>
-									</div>
+
+
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- Pie Chart -->
-					<div class="col-xl-4 col-lg-5">
-						<div class="card shadow mb-4">
-							<!-- Card Header - Dropdown -->
-							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-								<h6 class="m-0 font-weight-bold text-primary">User Added</h6>
-								<div class="dropdown no-arrow">
 
-								</div>
-							</div>
-							<!-- Card Body -->
-							<div class="card-body">
-								<div class="chart-pie pt-4 pb-2">
-									TEST
-								</div>
-								<div class="mt-4 text-center small">
-                                   <span class="mr-2">
-                                   <i class="fas fa-circle text-primary"></i> Direct
-                                     </span>
-									<span class="mr-2">
-                                    <i class="fas fa-circle text-success"></i> Social
-                                     </span>
-									<span class="mr-2">
-                                   <i class="fas fa-circle text-info"></i> Referral
-                                    </span>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 
 
